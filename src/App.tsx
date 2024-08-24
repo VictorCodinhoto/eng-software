@@ -14,6 +14,8 @@ function App() {
     const [valor7,setvalor7] = useState('');
     const [valor8,setvalor8] = useState('');
     var [lista,setLista] = useState<number[]>([]);
+    const [aparecerBotao, setAparecerBotao] = useState(false);
+    var continuar = false;
 
   
     useEffect(() => {
@@ -26,6 +28,7 @@ function App() {
           
           if(i == lista.length -1){
             alert(lista.join(', '));
+            setAparecerBotao(true);
           }
         }
       }
@@ -66,6 +69,7 @@ function App() {
           <input type="number" value={valor8} onChange={(event) => setvalor8(event.target.value)}/>
         </div>
         <button onClick={setIntoListAndOrganize}>Enviar</button>
+        {aparecerBotao &&(<button>Próxima página</button>)}
       </header>
     </div>
   );
