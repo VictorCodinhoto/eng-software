@@ -3,8 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 import { Interface } from 'readline';
 import { ListFormat } from 'typescript';
+import { Link } from 'react-router-dom';
 
-function App() {
+export default function App() {
     const [valor1,setvalor1] = useState('');
     const [valor2,setvalor2] = useState('');
     const [valor3,setvalor3] = useState('');
@@ -69,10 +70,11 @@ function App() {
           <input type="number" value={valor8} onChange={(event) => setvalor8(event.target.value)}/>
         </div>
         <button onClick={setIntoListAndOrganize}>Enviar</button>
-        {aparecerBotao &&(<button>Próxima página</button>)}
+        {aparecerBotao &&(<button>
+          <Link to="/SegundaTela">Próxima Página</Link></button>)}
       </header>
     </div>
   );
 }
 
-export default App;
+
