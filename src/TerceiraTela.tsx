@@ -1,37 +1,46 @@
 import './App.css';
-import { Interface } from 'readline';
-import { ListFormat } from 'typescript';
-import React, {useEffect, useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { buscadorExport } from './SegundaTela';
-import {listaExport} from './App'
+import { listaExport } from './App';
 
+export default function TerceiraTela() {
+    const [aparecerBotao, setAparecerBotao] = useState(false);
+    const [resultado, setResultado] = useState('');
 
-export default function TerceiraTela(){
-    function buscadorExportFun (){
-        return buscadorExport;
-    }
-    function verificarSeOBuscadorEstaNaLista(){
+    useEffect(() => {
+        verificarSeOBuscadorEstaNaLista();
+    }, []);
+
+    function verificarSeOBuscadorEstaNaLista() {
         if (!listaExport || listaExport.length === 0) {
-            return " não está na lista ou não está disponível!";
+            setResultado("Não está na lista ou não está disponível!");
+            return;
         }
-        for( let i = 0; i < listaExport.length;i++){
-            if(buscadorExport === listaExport[i]){
-                return ("O número contém na lista!")
-            }
+
+        const numeroEstaNaLista = listaExport.includes(buscadorExport);
+
+        if (numeroEstaNaLista) {
+            setResultado("O número contém na lista!");
+        } else {
+            setResultado("O número não contém na lista!");
         }
-            return ("O número não contem na lista!")
-        
+
+        setAparecerBotao(true);
     }
-    return(
+
+    return (
         <div id="App">
             <header className="App-header">
-                <div>O número</div>
+                <div>O número:</div>
                 <div>{buscadorExport}</div>
-                <div>{verificarSeOBuscadorEstaNaLista()}</div>
-
+                <div>{resultado}</div>
+                {aparecerBotao && (
+                    <button>
+                        <Link to="/">Voltar ao começo</Link>
+                    </button>
+                )}
             </header>
-
         </div>
     );
 }
