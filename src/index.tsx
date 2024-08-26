@@ -5,6 +5,7 @@ import App from './App';
 import SegundaPagina from './SegundaTela';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import TerceiraTela from './TerceiraTela';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,6 +16,7 @@ root.render(
         <Routes>
         <Route path="/" element={<App />} />
         <Route path='/SegundaTela' element={<SegundaPagina />}/>
+        <Route path='/TerceiraTela' element={<TerceiraTela/>}/>
         </Routes>
     </BrowserRouter>
      

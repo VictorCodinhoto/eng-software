@@ -4,7 +4,7 @@ import './App.css';
 import { Interface } from 'readline';
 import { ListFormat } from 'typescript';
 import { Link } from 'react-router-dom';
-
+export var listaExport: Number[] ;
 export default function App() {
     const [valor1,setvalor1] = useState('');
     const [valor2,setvalor2] = useState('');
@@ -17,7 +17,7 @@ export default function App() {
     var [lista,setLista] = useState<number[]>([]);
     const [aparecerBotao, setAparecerBotao] = useState(false);
     var continuar = false;
-
+    listaExport = lista;
   
     useEffect(() => {
       if (lista.length > 0) {
@@ -39,7 +39,7 @@ export default function App() {
       Number(valor1), Number(valor2), Number(valor3), Number(valor4),
       Number(valor5), Number(valor6), Number(valor7), Number(valor8)
   ];
-  setLista(bubbleSort(listaDesordenada));
+    setLista(bubbleSort(listaDesordenada))
     
 
   }

@@ -1,1 +1,0 @@
-import { numASerBuscado } from './SegundaTela';

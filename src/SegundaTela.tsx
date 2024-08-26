@@ -6,13 +6,16 @@ import { ListFormat } from 'typescript';
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 
-export var numASerBuscado: number = 0;
+export var buscadorExport: number = 0
 export default function SegundaPagina(){
     const [buscador,setBuscador] = useState("");
+    
     const [aparecerBotao, setAparecerBotao] = useState(false);
     function buscarNumero(){
-        numASerBuscado = parseInt(buscador);
+        const buscadorNum = Number(buscador);
+        buscadorExport = buscadorNum;
         setAparecerBotao(true);
+       
         
     }
     
